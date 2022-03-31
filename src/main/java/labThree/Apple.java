@@ -3,10 +3,10 @@ package labThree;
 public class Apple extends Fruit {
 
     public Apple(double calories) {
-        super(calories);
+        setCalories(calories);
     }
 
-    public static void removeSeeds() {
+    public  static void removeSeeds() {
         System.out.println("Removing seeds!");
     }
 

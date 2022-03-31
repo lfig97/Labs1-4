@@ -11,9 +11,8 @@ public abstract class Fruit {
         this.calories = calories;
     }
 
-    public void makeJuice (){
-        System.out.println ("Juice is made");
-
-
+    public void makeJuice() {
+        System.out.println("Make Juice. ");
     }
+
 }
