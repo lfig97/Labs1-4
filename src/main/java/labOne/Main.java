@@ -3,16 +3,22 @@ package labOne;
 import java.util.Scanner;
 
 public class Main {
-    String [] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
-    int input;
-
-    Scanner myScanner = new Scanner(System.in);
+    public static void main(String[] args) {
 
 
+        String[] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
+        Scanner myScanner = new Scanner(System.in);
+        System.out.println("Enter a number that corresponds to a day in the week:");
+        int dayOfWeek = myScanner.nextInt();
 
 
-        for (int i = 0; i <= daysOfWeek.length; i++){
-        System.out.println("Enter a number that corresponds with a day in the week: ");
-        daysOfWeek[i] = myScanner.nextLine();
+        System.out.println(daysOfWeek[dayOfWeek -1 ]);
+
+
+
+
+
+
     }
 }
