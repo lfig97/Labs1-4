@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class DaysOfTheWeek {
     private int dayOfWeek;
-
-    String[] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+    private String[] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
             "Saturday", "Sunday"};
 
     public void askNumber(){
