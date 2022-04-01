@@ -1,6 +1,6 @@
 package labFour;
 
-public abstract class Animal implements IAnimalsThatEat {
+public abstract class Animal {
     public abstract void makeSound();
 
     }
