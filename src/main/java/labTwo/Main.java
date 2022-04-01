@@ -1,34 +1,82 @@
 package labTwo;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
+    //initial setup
+    private String username;
+    private String defaultPass;
+    private String invalidMessage;
+    private static boolean validPass;
+//    public char[] specialchars = {'!','@','#','$','%','^','&','*','(',')','_','+','-','=',',','.','/',';','"',':','<','>','?','[','{',']','}'};
+
+    //getter and setter for username
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    //getter and setter for password
+    public String getDefaultPass() {
+        return defaultPass;
+    }
+    public void setDefaultPass(String defaultPass) {
+        this.defaultPass = defaultPass;
+    }
+    public boolean validPass(){
+        return validPass;
+    }
+    public void closeUserinput(){
+        userInput.close();
+    }
+    public static Scanner userInput = new Scanner(System.in);
+    public Main(String username, String defaultPass){
+        this.username=username;
+        this.defaultPass=defaultPass;
+    }
+
     public static void main(String[] args) {
-        //defining variables for later use
-        String userName;
-        //default password set to Password1
-        final String password = "Password1";
-        //counter starts at one to account for the failed attempt that would have required the prompt to be called.
-        int loginAttempts = 1;
+//        char[] specialchars = {'!','@','#','$','%','^','&','*','(',')','_','+','-','=',',','.','/',';','"',':','<','>','?','[','{',']','}'};
+//        int upperCount = 0;
+//        int specialCount = 0;
 
+        System.out.println("Please enter your username below: ");
+        String username = userInput.nextLine();
 
-        //initial request for a password input. First step.
-        System.out.println("Input your password below:");
-        while (true) {
-            //scanner input set-up
-            Scanner userInput = new Scanner(System.in);
-            String passwordInput = userInput.nextLine();
+        System.out.println("Please enter your password below: ");
+        String password = userInput.nextLine();
 
-            if (password.equals(passwordInput)) {
-                //login authentication success
-                System.out.println("Log-in Successful, Welcome User");
-                break;
-            } else {
-                //call from psvm, continuously adds to value a for every incorrect password input, beginning at one.
-                int a = loginAttempts++;
-                //output in the event of an incorrect password input.
-                System.out.println("Incorrect Password. You have " + a + " Failed attempt(s). Please try again.");
+        System.out.println("Your new password must: ");
+        System.out.println("-be at least 8 characters long.");
+        System.out.println("-contain an uppercase letter.");
+        System.out.println("-contain a special character.");
+        System.out.println("-not contain your username.");
+        System.out.println("-be different from your old password.");
+
+        while (true){
+            System.out.println("Please enter your new password below: ");
+            String newPass = userInput.nextLine();
+
+//            for (int i = 0; i++){
+//                char check = userInput.charAt(i);
+
+            if (newPass.length() < 8) {
+                validPass = false;
+                System.out.println("Your new password must be at least 8 characters");
+            }else if (newPass.toUpperCase().contains(username.toUpperCase())){
+                validPass = false;
+                System.out.println("Your new password must not contain your username!");
+            }else if (newPass.equals(password)){
+                validPass = false;
+                System.out.println("Your new password must be different from your current password!");
             }
+
+
+
         }
+
+
     }
 }
